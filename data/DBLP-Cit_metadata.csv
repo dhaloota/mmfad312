@@ -1,0 +1,2 @@
+dataset,num_nodes,num_edges,num_attributes,num_anomalies,anomaly_percentage,sum_degree,average_degree,node_id_start,node_id_end
+DBLP-Cit,12793,49743,28,269,2.102712,99486,7.776597,0,12792

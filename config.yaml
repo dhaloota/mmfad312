@@ -1,0 +1,49 @@
+seed: 42
+device: auto
+standardize_features: true
+num_torch_threads: 1
+
+data:
+  attributes_path: data/DBLP-Cit_attributes.csv
+  edges_path: data/DBLP-Cit_edges.csv
+  labels_path: data/DBLP-Cit_ground_truth.csv
+  undirected: true
+  add_self_loops: true
+  expected_num_nodes: 12793
+  expected_num_edges: 49743
+  expected_num_attributes: 28
+  expected_num_anomalies: 269
+
+training:
+  optimizer: adam
+  learning_rate: 0.005
+  epochs: 20
+  embedding_dim: 128
+  hidden_dim: 128
+  sam_attention_dim: 32
+  dropout: 0.10
+  weight_decay: 0.0
+  negative_edges_per_positive: 1.0
+  gradient_clip_norm: 5.0
+
+loss:
+  lambda_decorr: 0.01
+  beta_reg: 0.001
+  lambda_reconstruction: 1.0
+  lambda_edge_reconstruction: 1.0
+
+feedback:
+  eta: 0.5
+  steps: 1
+
+evaluation:
+  topk_values: [50, 100, 200, 250]
+  compute_auc: true
+  save_roc_png: true
+  save_roc_pdf: true
+
+outputs:
+  output_dir: outputs
+  save_scores: true
+  save_metrics: true
+  save_config_snapshot: true

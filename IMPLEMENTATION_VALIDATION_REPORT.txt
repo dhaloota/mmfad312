@@ -1,0 +1,46 @@
+MMFAD IMPLEMENTATION VALIDATION REPORT
+=====================================
+
+Package: mmfad_reproducible_code
+Entry point: run_mmfad.py
+Command tested: python run_mmfad.py --config config.yaml --device cpu
+
+Validation status: PASSED
+
+Confirmed checks:
+- DBLP-Cit_attributes.csv loaded and validated.
+- DBLP-Cit_edges.csv loaded and validated.
+- DBLP-Cit_ground_truth.csv loaded and validated.
+- Node IDs are contiguous from 0 to 12792.
+- Number of nodes: 12,793.
+- Number of raw CSV edges: 49,743.
+- Number of node attributes: 28.
+- Number of anomaly labels: 269.
+- Labels are used only for evaluation, not unsupervised training.
+- GCN, SAM, and GAE branches produce a common 128-dimensional node embedding.
+- Fusion weights are initialized uniformly through zero logits and learned by softmax.
+- Feedback refinement is implemented.
+- Attribute reconstruction, edge reconstruction, decorrelation, and structural regularization losses are implemented.
+- Final anomaly score follows: ||fused - expected||_2 + lambda_r ||x - x_hat||_2.
+- Top-k evaluation for k = 50, 100, 200, 250 is implemented.
+- AUC and ROC curve values are saved.
+- ROC curve is saved as PNG and PDF.
+- Metrics, anomaly scores, training log, configuration snapshot, package versions, and model weights are saved.
+
+Default 20-epoch CPU run completed successfully in this environment.
+
+Generated outputs:
+- outputs/training_log.csv
+- outputs/anomaly_scores.csv
+- outputs/topk_results.csv
+- outputs/metrics.json
+- outputs/roc_curve_values.csv
+- outputs/roc_curve.png
+- outputs/roc_curve.pdf
+- outputs/config_snapshot.yaml
+- outputs/package_versions.json
+- outputs/mmfad_model_state_dict.pt
+- outputs/run_summary.txt
+
+Important note:
+This code is a complete executable implementation of the MMFAD specification. The currently bundled DBLP-Cit CSV files are the reproducible ready-to-use dataset files created for experimentation. If authors later obtain the official DBLP-Cit files, they can replace the CSV files in data/ while preserving the same schemas.
