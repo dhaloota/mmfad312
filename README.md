@@ -1,6 +1,6 @@
 # MMFAD Anonymous Reproducibility Implementation
 
-This repository provides a complete, reviewer-facing implementation of **MMFAD: Consensus-Guided Multi-Modal Fusion for Attributed Graph Anomaly Detection**.
+This repository provides the implementation of **MMFAD: Consensus-Guided Multi-Modal Fusion for Attributed Graph Anomaly Detection**.
 
 In this implementation, **multi-modal** means **multi-encoder / multi-perspective representation learning over one attributed graph**, not heterogeneous raw inputs such as text, image, or audio.
 
@@ -84,7 +84,7 @@ mmfad_model_state_dict.pt
 run_summary.txt
 ```
 
-## Reviewer audit notes
+## Notes:
 
 The implementation deliberately avoids hidden notebooks and manual post-processing. All important hyperparameters are visible in `config.yaml`. All major model choices are implemented in small inspectable modules under `mmfad/`.
 
